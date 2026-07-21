@@ -4,6 +4,7 @@ import { supabase } from "../../lib/supabaseClient";
 import { Home, Search, MessageCircle, User } from "lucide-react";
 import { LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { BoxArrowInRight } from "react-bootstrap-icons";
 // import { supabase } from "../lib/supabaseClient";
 
 function MobileNav() {
@@ -40,14 +41,21 @@ function MobileNav() {
       {item("/", <Home size={24} />)}
       {item("/explore", <Search size={24} />)}
       {item("/chat", <MessageCircle size={24} />)}
-      {user && item("/profile", <User size={24} />)}
-      {user && (
-        <button
-          onClick={handleLogout}
-          className="flex-1 flex justify-center items-center py-3 text-2xl text-[var(--color-muted)] hover:text-red-400 transition"
-        >
-          <LogOut size={24} />
-        </button>
+      {/* {navItem("/profile", <User size={22} />, "Profile")}
+      {user && navItem("/profile", <User size={22} />, "Profile")} */}
+      {item("/profile", <User size={24} />)}
+
+      {user ? (
+        <>
+          <button
+            onClick={handleLogout}
+            className="flex-1 flex justify-center items-center py-3 text-2xl text-[var(--color-muted)] hover:text-red-400 transition"
+          >
+            <LogOut size={24} />
+          </button>
+        </>
+      ) : (
+        item("/login", <BoxArrowInRight size={24} />)
       )}
     </div>
   );
