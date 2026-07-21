@@ -99,12 +99,12 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
-              className="w-full bg-[#14161C] border border-gray-700 rounded px-3 py-2 pr-10 outline-none focus:border-[#7C6FF0]"
+              className="w-full bg-[var(--color-bg)] text-[var(--color-text)] border border-[var(--color-border)] rounded px-3 py-2 pr-10 outline-none focus:border-[#7C6FF0]"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#7C6FF0] transition"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-muted)] hover:text-[#7C6FF0] transition"
             >
               {showPassword ? <EyeSlash size={18} /> : <Eye size={18} />}
             </button>
